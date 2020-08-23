@@ -47,7 +47,7 @@ namespace Tests
 
         [Fact]
         public void Test1Prime() {
-            Assert.Equal(false, x.PrimeCheckRec(1,0));  //DivideByZeroException
+            Assert.Throws<DivideByZeroException>(() => x.PrimeCheckRec(1,0));  //DivideByZeroException
         }
         [Fact]
         public void Test2Prime() {
@@ -63,12 +63,12 @@ namespace Tests
 
         // FIBONACCI NUMBER
 
-        /*[Fact]
+        [Fact]
         public void Test1Fibnum() {
-            Assert.Equal(x.FibonacciRec(5));
-        }*/
+            Assert.Equal(3, x.FibonacciRec(1,0,1));
+        }
         [Theory]
-        [InlineData (33, 0, 1, 2)]
+        [InlineData (17, 1,2,2)]
         public void Test2Fibnum(int expected, int num1, int num2, int numFibs) {
             Assert.Equal(expected, x.FibonacciRec(num1, num2, numFibs));
         }
